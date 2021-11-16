@@ -1,23 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Home from './views/Home';
+import speakeasy from './images/speakeasy.jpg';
+import English from './views/English';
+import britishPub from './images/british-pub.jpg';
+import EnglishTutor from './views/EnglishTutor';
+import Spanish from './views/Spanish';
+import spanishCantina from './images/spanish-cantina.jpg';
+import Greek from './views/Greek';
+import greekTaverna from './images/greek-taverna.jpg'
+import Tutor from './views/Tutor';
+import Error from './views/Error';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path='/tutors/Flynn'> {/*Change Flynn to :id*/}
+          <Tutor />
+        </Route>
+        <Route path='/english/tutors'>
+          <EnglishTutor />
+        </Route>
+        <Route path='/english'>
+          <div styles={{ backgroundImage: `url(${britishPub})` }}> {/*Why doesn't the background image work*/}
+            <English />
+          </div>
+        </Route>
+        <Route path='/spanish'>
+          <div styles={{ backgroundImage: `url(${spanishCantina})` }}> {/*Why doesn't the background image work*/}
+            <Spanish />
+          </div>
+        </Route>
+        <Route path='/greek'>
+          <div styles={{ backgroundImage: `url(${greekTaverna})` }}> {/*Why doesn't the background image work*/}
+            <Greek />
+          </div>
+        </Route>
+        <Route path='/error'>
+          <Error />
+        </Route>
+        <Route path='/home'>
+          <div styles={{ backgroundImage: `url(${speakeasy})` }}> {/*Why doesn't the background image work*/}
+            <Home />
+          </div>
+        </Route>
+        <Route path='/'>
+          <Redirect to='/home' />
+        </Route>
+      </Switch>
     </div>
   );
 }
