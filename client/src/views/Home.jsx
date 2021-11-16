@@ -30,8 +30,8 @@ const Home = props => {
                 <h1>Speakeasy</h1>
                 <select>
                     <option>English</option>
-                    <option>Spanish</option>
-                    <option>Greek</option>
+                    <option>Español</option>
+                    <option>Ελληνικά</option>
                 </select>
                 <button onClick={errorPage} className={styles.navBtnYlw}>Languages</button>
                 <button onClick={errorPage} className={styles.navBtnYlw}>Sign Up</button>

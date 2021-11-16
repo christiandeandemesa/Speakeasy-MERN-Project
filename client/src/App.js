@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path='/tutors/Flynn'> {/*Change Flynn to :id*/}
+        <Route path='/tutors/:id'>
           <Tutor />
         </Route>
         <Route path='/english/tutors'>
