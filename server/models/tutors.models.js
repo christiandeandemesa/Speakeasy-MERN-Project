@@ -20,6 +20,18 @@ const TutorSchema = new mongoose.Schema({
         type: String,
         required: [true, '{PATH} must be present']
     },
+    english: {
+        type: Boolean,
+        default: false
+    },
+    spanish: {
+        type: Boolean,
+        default: false
+    },
+    greek: {
+        type: Boolean,
+        default: false
+    },
     resume: {
         type: String
     },
@@ -29,6 +41,13 @@ const TutorSchema = new mongoose.Schema({
     },
     rate: {
         type: Number,
+        required: [true, '{PATH} must be present']
+    },
+    phoneNumber: {
+        type: String
+    },
+    email: {
+        type: String,
         required: [true, '{PATH} must be present']
     }
 }, {timestamps: true});
