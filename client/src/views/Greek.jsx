@@ -34,7 +34,7 @@ const Greek = () => {
                 </div>
                 <div className={styles.blueBox}>
                     <h2>Find a Greek tutor</h2>
-                    <button onClick={errorPage} className={styles.boxBtnYlw}>Look</button>
+                    <button onClick={greekTutorPage} className={styles.boxBtnYlw}>Look</button>
                 </div>
             </div>
         </div>

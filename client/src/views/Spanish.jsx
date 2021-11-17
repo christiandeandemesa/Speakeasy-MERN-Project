@@ -34,7 +34,7 @@ const Spanish = props => {
                 </div>
                 <div className={styles.redBox}>
                     <h2>Find a Spanish tutor</h2>
-                    <button onClick={errorPage} className={styles.boxBtnYlw}>Look</button>
+                    <button onClick={spanishTutorPage} className={styles.boxBtnYlw}>Look</button>
                 </div>
             </div>
         </div>

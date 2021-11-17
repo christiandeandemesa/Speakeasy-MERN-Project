@@ -8,6 +8,8 @@
     width: auto;
     display: flex;
     flex-direction: column;
+    background-image: url('../images/spanish-cantina.jpg');
+    background-size: cover;
 }
 .navbar {
     height: 20%;
