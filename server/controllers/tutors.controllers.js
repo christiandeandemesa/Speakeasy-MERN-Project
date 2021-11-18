@@ -40,7 +40,7 @@ module.exports = {
         tutor.save()
             .then(() => {
                 res.cookie('tutortoken', jwt.sign({_id: tutor._id}, secret), {httpOnly: true})
-                .json({msg: 'successfully created user', user: user});
+                .json({msg: '🍪 Successfully registered a tutor in controllers', tutor: tutor});
             })
             .catch(err => res.json(err));
     },
@@ -49,18 +49,18 @@ module.exports = {
         Tutor.findOne({email: req.body.email})
             .then(tutor => {
                 if(tutor === null) {
-                    res.json({msg: 'Invalid login attempt'});
+                    res.json({msg: '🛑🍪 User not found in controllers'});
                 } else {
                     bcrypt.compare(req.body.password, tutor.password)
                         .then(passwordIsValid => {
                             if(passwordIsValid) {
                                 res.cookie('tutortoken', jwt.sign({_id: tutor._id}, secret), {httpOnly: true})
-                                .json({msg: 'success!'});
+                                .json({msg: '🍪 Successfully logged in a tutor in controllers'});
                             } else {
-                                res.json({msg: 'Invalid login attempt'});
+                                res.json({msg: '🛑🍪 Password not found in controllers'});
                             }
                         })
-                        .catch(err => res.json({msg: 'Invalid login attempt'}));
+                        .catch(err => res.json({msg: '🛑🍪 Invalid login attempt in controllers'}));
                 }
             })
             .catch(err => res.json(err));
@@ -68,7 +68,7 @@ module.exports = {
 
     logout: (req, res) => {
         res.clearCookie('tutortoken');
-        res.snedStatus(200);
+        res.sendStatus(200);
     }
 
 }

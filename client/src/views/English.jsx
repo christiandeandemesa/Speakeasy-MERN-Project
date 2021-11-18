@@ -18,19 +18,27 @@ const English = props => {
         history.push('/error');
     }
 
+    const registerPage = () => {
+        history.push('/tutors/register');
+    }
+
+    const loginPage = () => {
+        history.push('/tutors/login');
+    }
+
     return (
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
                 <h1>Speakeasy</h1>
                 <img src={british} height='50' width='83' alt='English Flag' />
                 <button onClick={homePage} className={styles.navBtnYlw}>Home</button>
-                <button onClick={errorPage} className={styles.navBtnYlw}>Sign Up</button>
-                <button onClick={errorPage} className={styles.navBtnYlw}>Login</button>
+                <button onClick={registerPage} className={styles.navBtnYlw}>Register</button>
+                <button onClick={loginPage} className={styles.navBtnYlw}>Login</button>
             </div>
             <div className={styles.body}>
                 <div className={styles.grnBox}>
                     <h2>English for beginners</h2>
-                    <button onClick={errorPage} className={styles.boxBtnYlw}>Learn</button>
+                    <button onClick={errorPage} className={styles.boxBtnYlw}>Learn</button> {/*Have this link to an english language page*/}
                 </div>
                 <div className={styles.grnBox}>
                     <h2>Find an English tutor</h2>
