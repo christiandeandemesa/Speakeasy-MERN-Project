@@ -52,7 +52,6 @@ const SpanishTutor = props => {
                 {tutors.map(tutor => {
                     return (
                         <div key={tutor._id} className={styles.grnBox}>
-                        {tutor.spanish ? 'show' : 'do not show'} {/*Tried to use ternary operator to show only spanish tutors: {tutor.spanish ? 'below code' : ''}, but it didn't work*/}
                             <div>
                                 {tutor.image === ''
                                     ? <img src={avatar} height='50' width='50' alt='generic profile picture' className={styles.rdImg}/>
@@ -60,7 +59,9 @@ const SpanishTutor = props => {
                             </div>
                             <div className={styles.flxGrnBox}>
                                 <h2>{tutor.firstName} {tutor.lastName}</h2>
-                                <button onClick={() => tutorPage(tutor._id)} className={styles.boxBtnYlw}>Profile Page</button>
+                                {tutor.spanish 
+                                    ? <button onClick={() => tutorPage(tutor._id)} className={styles.boxBtnYlw}>Profile Page</button> 
+                                    : 'Tutor does not speak spanish'}
                             </div>
                         </div>
                     )

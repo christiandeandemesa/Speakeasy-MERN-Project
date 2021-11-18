@@ -23,10 +23,6 @@ const Tutor = props => {
 
     }
 
-    const englishTutorPage = () => {
-        history.push('/english/tutors');
-    }
-
     const homePage = () => {
         history.push('/home');
     }
@@ -39,7 +35,11 @@ const Tutor = props => {
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
                 <h1>Speakeasy</h1>
-                <button onClick={englishTutorPage} className={styles.navBtnYlw}>English Tutors</button>
+                <select>
+                    <option>English</option>
+                    <option>Español</option>
+                    <option>Ελληνικά</option>
+                </select>
                 <button onClick={homePage} className={styles.navBtnYlw}>Home</button>
                 <button onClick={errorPage} className={styles.navBtnYlw}>Sign Up</button>
                 <button onClick={errorPage} className={styles.navBtnYlw}>Login</button>
@@ -63,7 +63,7 @@ const Tutor = props => {
                     <div className={styles.banner}>
                         {oneTutor.resume === ''
                             ? <h2>Resume unavailable</h2>
-                            : <h2><a href={`${oneTutor.resume}`}>Resume</a></h2>}
+                            : <h2><a href={`${oneTutor.resume}`} target='_blank'>Resume</a></h2>}
                         <h2>Languages spoken:</h2>
                         <h3>English: {oneTutor.english ? 'Yes' : 'No'} | Spanish: {oneTutor.spanish ? 'Yes' : 'No'} | Greek: {oneTutor.greek ? 'Yes' : 'No'}</h3>
                     </div>

@@ -9,11 +9,15 @@ import Spanish from './views/Spanish';
 import Greek from './views/Greek';
 import Tutor from './views/Tutor';
 import Error from './views/Error';
+import RegLog from './views/RegLog';
 
 function App() {
   return (
     <div className="App">
       <Switch>
+        <Route path='/tutors/register'>
+          <RegLog />
+        </Route>
         <Route path='/tutors/:id'>
           <Tutor />
         </Route>

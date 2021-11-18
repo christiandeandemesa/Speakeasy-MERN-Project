@@ -20,8 +20,16 @@ const Error = () => {
         history.push('/spanish');
     }
 
+    const spanishTutorPage = () => {
+        history.push('/spanish/tutors');
+    }
+
     const greekPage = () => {
         history.push('/greek');
+    }
+
+    const greekTutorPage = () => {
+        history.push('/greek/tutors');
     }
 
     return (
@@ -31,7 +39,9 @@ const Error = () => {
             <button onClick={englishPage}>English</button>
             <button onClick={englishTutorPage}>English Tutors</button>
             <button onClick={spanishPage}>Spanish</button>
+            <button onClick={spanishTutorPage}>Spanish Tutors</button>
             <button onClick={greekPage}>Greek</button>
+            <button onClick={greekTutorPage}>Greek Tutors</button>
         </div>
     )
 }
