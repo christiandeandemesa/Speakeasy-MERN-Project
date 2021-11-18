@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import british from '../images/british-flag.png';
 import avatar from '../images/generic-avatar.jpg';
 import styles from './EnglishTutor.module.css';
@@ -8,6 +9,7 @@ import styles from './EnglishTutor.module.css';
 const EnglishTutor = props => {
     const [tutors, setTutors] = useState([]);
     const history = useHistory();
+    const { t, i18n } = useTranslation('common');
 
     useEffect(() => {
         getTutors();
@@ -59,10 +61,13 @@ const EnglishTutor = props => {
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
                 <h1>Speakeasy</h1>
-                <img src={british} height='50' width='83' alt='british flag' />
-                <button onClick={homePage} className={styles.navBtnYlw}>Home</button>
-                <button onClick={registerPage} className={styles.navBtnYlw}>Register</button>
-                <button onClick={loginPage} className={styles.navBtnYlw}>Login</button>
+                <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
+                <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
+                <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
+                {/*<img src={british} height='50' width='83' alt='british flag' />*/}
+                <button onClick={homePage} className={styles.navBtnYlw}>{t('header.home')}</button>
+                <button onClick={registerPage} className={styles.navBtnYlw}>{t('header.register')}</button>
+                <button onClick={loginPage} className={styles.navBtnYlw}>{t('header.login')}</button>
             </div>
             <div className={styles.body}>
                 {tutors.map(tutor => {
@@ -76,8 +81,8 @@ const EnglishTutor = props => {
                             <div className={styles.flxGrnBox}>
                                 <h2>{tutor.firstName} {tutor.lastName}</h2>
                                 {tutor.english
-                                    ? <button onClick={() => tutorPage(tutor._id)} className={styles.boxBtnYlw}>Profile Page</button>
-                                    : 'Tutor does not speak english'}
+                                    ? <button onClick={() => tutorPage(tutor._id)} className={styles.boxBtnYlw}>{t('body.tutorBtn')}</button>
+                                    : <p>{t('body.enTutor')}</p>}
                             </div>
                         </div>
                     )

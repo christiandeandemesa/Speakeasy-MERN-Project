@@ -1,0 +1,38 @@
+{
+    "welcome": {
+        "title": "Bienvenida a {{framework}}"
+    },
+    "header": {
+        "name": "Speakeasy",
+        "languages": "Idiomas",
+        "home": "Hogar",
+        "register": "Registrarse",
+        "login": "Iniciar sesión"
+    },
+    "body": {
+        "homeText": "Aprenda a su propio ritmo",
+        "enLearn": "Inglés para principiantes",
+        "enLook": "Encuentra un tutor de Inglés",
+        "enTutor": "El tutor no habla Inglés",
+        "grLearn": "Griego para principiantes",
+        "grLook": "Encuentra un tutor de Griego",
+        "grTutor": "El tutor no habla Griego",
+        "spLearn": "Español para principiantes",
+        "spLook": "Encuentra un profesor de Español",
+        "spTutor": "El tutor no habla Español",
+        "learnBtn": "Aprender",
+        "lookBtn": "Mira",
+        "tutorBtn": "Página de perfil",
+        "resume": "Resume",
+        "noResume": "Resume unavailable",
+        "languages": "Idiomas hablados:",
+        "en": "Inglés",
+        "gr": "Griego",
+        "sp": "Español",
+        "online": "Online",
+        "yes": "Sí",
+        "no": "No",
+        "hour": "hora",
+        "contact": "Contacto"
+    }
+}
