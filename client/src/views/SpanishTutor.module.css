@@ -43,6 +43,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 2%;
+    opacity: 85%;
 }
 .flxRedBox {
     height: 150%;
@@ -53,7 +54,7 @@
     align-items: center;
 }
 .boxBtnYlw {
-    height:25%;
+    height:30%;
     width: 80%;
     background-color: rgb(209, 209, 101);
     color: rgb(70, 0, 0);

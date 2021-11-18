@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './Login.module.css'; // Login starts at 29:30 in frontend video.
 
 const Login = props => {
+    const { t, i18n } = useTranslation('common');
+
     const [form, setForm] = useState({
         email: '',
         password: ''
@@ -37,16 +40,19 @@ const Login = props => {
     return (
         <div>
             <div>
-                <h1>Login Form</h1>
+                <h1>{t('form.login')}</h1>
+                <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
+                <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
+                <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
             </div>
             {errors ? <p style={{color: 'red'}}>{errors}</p> : ''}
             <form onSubmit={login}>
                 <div>
-                    <label>Email:</label>
+                    <label>{t('form.email')}:</label>
                     <input type='password' onChange={loginTutor} /><br />
-                    <label>Password:</label>
+                    <label>{t('form.password')}:</label>
                     <input type='password' onChange={loginTutor} /><br />
-                    <button>Login</button>
+                    <button>{t('header.login')}</button>
                 </div>
                 <div>
                     {/*Logo*/}

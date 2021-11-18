@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useHistory, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import avatar from '../images/generic-avatar.jpg';
 import styles from './Tutor.module.css';
 
@@ -8,6 +9,7 @@ const Tutor = props => {
     const { id } = useParams();
     const [oneTutor, setOneTutor] = useState({});
     const history = useHistory();
+    const { t, i18n } = useTranslation('common');
 
     useEffect(() => {
         getOneTutor();
@@ -31,10 +33,6 @@ const Tutor = props => {
         history.push('/home');
     }
 
-    const errorPage = () => {
-        history.push('/error');
-    }
-
     const registerPage = () => {
         history.push('/tutors/register');
     }
@@ -47,21 +45,24 @@ const Tutor = props => {
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
                 <h1>Speakeasy</h1>
-                <select>
+                <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
+                <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
+                <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
+                {/*<select>
                     <option>English</option>
                     <option>Español</option>
                     <option>Ελληνικά</option>
-                </select>
-                <button onClick={homePage} className={styles.navBtnYlw}>Home</button>
-                <button onClick={registerPage} className={styles.navBtnYlw}>Register</button>
-                <button onClick={loginPage} className={styles.navBtnYlw}>Login</button>
+                </select>*/}
+                <button onClick={homePage} className={styles.navBtnYlw}>{t('header.home')}</button>
+                <button onClick={registerPage} className={styles.navBtnYlw}>{t('header.register')}</button>
+                <button onClick={loginPage} className={styles.navBtnYlw}>{t('header.login')}</button>
             </div>
             <div className={styles.body}>
                 <div className={styles.lftBody}>
                     {oneTutor.image === ''
                         ? <img src={avatar} height='250' width='250' alt='generic profile picture' className={styles.rdImg} />
                         : <img src={oneTutor.image} height='250' width='250' alt='profile picture' className={styles.rdImg} />}
-                    <h1 className={styles.boxBtnYlw}><a href={`mailto:${oneTutor.email}`}>Contact</a></h1>
+                    <h1 className={styles.boxBtnYlw}><a href={`mailto:${oneTutor.email}`}>{t('body.contact')}</a></h1>
                 </div>
                 <div className={styles.rgtBody}>
                     <div className={styles.banner}>
@@ -74,14 +75,14 @@ const Tutor = props => {
                     </div>
                     <div className={styles.banner}>
                         {oneTutor.resume === ''
-                            ? <h2>Resume unavailable</h2>
-                            : <h2><a href={`${oneTutor.resume}`} target='_blank'>Resume</a></h2>}
-                        <h2>Languages spoken:</h2>
-                        <h3>English: {oneTutor.english ? 'Yes' : 'No'} | Spanish: {oneTutor.spanish ? 'Yes' : 'No'} | Greek: {oneTutor.greek ? 'Yes' : 'No'}</h3>
+                            ? <h2>{t('body.noResume')}</h2>
+                            : <h2><a href={`${oneTutor.resume}`} target='_blank'>{t('body.resume')}</a></h2>}
+                        <h2>{t('body.languages')}:</h2>
+                        <h3>{t('body.en')}: {oneTutor.english ? <span>{t('body.yes')}</span> : <span>{t('body.no')}</span>} | {t('body.sp')}: {oneTutor.spanish ? <span>{t('body.yes')}</span> : <span>{t('body.no')}</span>} | {t('body.gr')}: {oneTutor.greek ? <span>{t('body.yes')}</span> : <span>{t('body.no')}</span>}</h3>
                     </div>
-                    <div className={styles.banner}> {/*Style the banner to look more than a rectangle*/}
-                        <h2>Online: {oneTutor.online ? 'Yes' : 'No'}</h2>
-                        <h2>{`$${oneTutor.rate}/hour`}</h2> {/*Why is it removing the 0?*/}
+                    <div className={styles.banner}>
+                        <h2>{t('body.online')}: {oneTutor.online ? 'Yes' : 'No'}</h2>
+                        <h2>{`$${oneTutor.rate}`}/{t('body.hour')}</h2> {/*Why is it removing the 0?*/}
                     </div>
                 </div>
             </div>

@@ -45,6 +45,8 @@
     align-items: center;
     padding: 2%;
     margin-top: 5%;
+    opacity: 85%;
+    font-weight: bold;
 }
 .brwnRctngle {
     height: 20%;
@@ -54,7 +56,25 @@
     justify-content: space-evenly;
     align-items: center;
     margin-top: 5%;
+    opacity: 85%;
 }
 .btnBrwn {
     background-color: rgb(29, 13, 13);
+}
+button {
+    transition: all .5s ease;
+    color: #fff;
+    border: 3px solid white;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+}
+button:hover {
+    color: #001F3F;
+    background-color: #fff;
 }

@@ -45,10 +45,6 @@ const EnglishTutor = props => {
             });
     }
 
-    const errorPage = () => {
-        history.push('/error');
-    }
-
     const registerPage = () => {
         history.push('/tutors/register');
     }

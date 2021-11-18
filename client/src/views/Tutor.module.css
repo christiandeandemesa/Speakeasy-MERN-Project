@@ -52,7 +52,7 @@
 }
 .boxBtnYlw {
     height: 8%;
-    width: 35%;
+    width: 45%;
     background-color: rgb(209, 209, 101);
     color: rgba(78,49,8,255);
     border-radius: 15px;
@@ -67,6 +67,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    opacity: 70%;
 }
 .rdImg {
     border-radius: 50%;

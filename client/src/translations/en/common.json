@@ -25,7 +25,7 @@
         "tutorBtn": "Profile Page",
         "resume": "Resume",
         "noResume": "Resume unavailable",
-        "languages": "Languages spoken:",
+        "languages": "Languages spoken",
         "en": "English",
         "gr": "Greek",
         "sp": "Spanish",
@@ -34,5 +34,19 @@
         "no": "No",
         "hour": "hour",
         "contact": "Contact"
+    },
+    "form": {
+        "register": "Register as a Tutor",
+        "login": "Tutor Login",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "picture": "Profile Picture",
+        "city": "City",
+        "state": "State",
+        "rate": "Rate per $/hour",
+        "phoneNumber": "Phone Number",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password"
     }
 }

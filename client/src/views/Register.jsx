@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom';
-import styles from './Register.module.css'; // Please double-check starting at 13:30
+import { useTranslation } from 'react-i18next';
+import styles from './Register.module.css';
 
 const Register = props => {
+    const { t, i18n } = useTranslation('common');
+
     const [form, setForm] = useState({ // State is not updating
         firstName: '',
         lastName: '',
@@ -59,45 +62,48 @@ const Register = props => {
     return(
         <div>
             <div>
-                <h1>Registration Form</h1>
+                <h1>{t('form.register')}</h1>
+                <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
+                <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
+                <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
             </div>
             {errors.map((err, idx) => <p key={idx}
             style={{color: 'red'}}>{err}</p>)}
             <form onSubmit={register}>
                 <div>
-                    <label>First Name:</label>
+                    <label>{t('form.firstName')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='required' /><br />
                     {errors.firstName ? <p style={{color: 'red'}}>{errors.firstName.message}</p> : ''} {/*Check to see if this works. If not go to 26:00 in frontend video*/}
-                    <label>Last Name:</label>
+                    <label>{t('form.lastName')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='required' /><br />
-                    <label>Profile Picture:</label>
+                    <label>{t('form.picture')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='optional' /><br />
-                    <label>City:</label>
+                    <label>{t('form.city')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='required' /><br />
-                    <label>State:</label>
+                    <label>{t('form.state')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='required' /><br />
-                    <input type='checkbox' onChange={registerTutor} /> English &nbsp; {/*Will this work on checkboxes*/}
-                    <input type='checkbox' onChange={registerTutor} /> Spanish &nbsp;
-                    <input type='checkbox' onChange={registerTutor} /> Greek &nbsp;
-                    <input type='checkbox' onChange={registerTutor} /> Online 
+                    <input type='checkbox' onChange={registerTutor} /> <p>{t('body.en')}</p> &nbsp;
+                    <input type='checkbox' onChange={registerTutor} /> <p>{t('body.sp')}</p> &nbsp;
+                    <input type='checkbox' onChange={registerTutor} /> <p>{t('body.gr')}</p> &nbsp;
+                    <input type='checkbox' onChange={registerTutor} /> <p>{t('body.online')}</p> 
                 </div>
                 <div>
-                    <label>Resume:</label>
+                    <label>{t('body.resume')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='optional' /><br />
-                    <label>Rate per $/hour:</label>
+                    <label>{t('form.rate')}:</label>
                     <input type='number' onChange={registerTutor} min={5} max={100} placeholder='required' /><br />
-                    <label>Phone Number:</label>
+                    <label>{t('form.phoneNumber')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='optional'/><br />
-                    <label>Email:</label>
+                    <label>{t('form.email')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='required' /><br />
-                    <label>Password:</label>
+                    <label>{t('form.password')}:</label>
                     <input type='password' onChange={registerTutor} placeholder='required' /><br />
-                    <label>Confirm Password:</label>
+                    <label>{t('form.confirmPassword')}:</label>
                     <input type='password' onChange={registerTutor} placeholder='required' />
                 </div>
                 <div>
                     {/*Logo*/}
-                    <button>Register</button>
+                    <button>{t('header.register')}</button>
                 </div>
             </form>
         </div>

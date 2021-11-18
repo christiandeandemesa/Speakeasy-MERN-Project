@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import british from '../images/british-flag.png';
 import spanish from '../images/spanish-flag.png';
 import greek from '../images/greek-flag.jpg';
+import logo from '../images/speakeasy-logo.png';
 import styles from './Home.module.css';
 
 const Home = props => {
@@ -37,6 +38,7 @@ const Home = props => {
     return (
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
+            <img src={logo} height='100' width='83' alt='Logo' />
                 <h1>Speakeasy</h1>
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
@@ -52,9 +54,9 @@ const Home = props => {
             </div>
             <div className={styles.body}>
                 <div className={styles.brwnBox}>
-                    <h2>{t('body.homeText')}</h2>
+                    <h2 className={styles.brwnBoxWrd}>{t('body.homeText')}</h2>
                 </div>
-                <div className={styles.brwnRctngle}>
+                <div>
                     <button onClick={englishPage} className={styles.btnBrwn}><img src={british} height='60' width='100' alt='British Flag' /></button>
                     <button onClick={spanishPage} className={styles.btnBrwn}><img src={spanish} height='60' width='100' alt='Spanish Flag' /></button>
                     <button onClick={greekPage} className={styles.btnBrwn}><img src={greek} height='60' width='100' alt='Greek Flag' /></button>

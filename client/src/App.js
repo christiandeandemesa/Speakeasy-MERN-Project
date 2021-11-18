@@ -55,11 +55,6 @@ function HeaderComponent() {
 function App() {
   return (
     <div className="App">
-      <Suspense fallback="loading">
-        <div className="App">
-          <HeaderComponent />
-        </div>
-      </Suspense>
       <Switch>
         <Route path='/tutors/register'>
           <Register />
