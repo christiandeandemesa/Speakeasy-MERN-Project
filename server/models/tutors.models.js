@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const TutorSchema = new mongoose.Schema({
     firstName: {
@@ -48,9 +49,37 @@ const TutorSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: [true, '{PATH} must be present']
+        required: [true, '{PATH} must be present'],
+        validate: {
+            validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
+            message: 'Please enter a valid {PATH}'
+        }
+    },
+    password: {
+        type: String,
+        required: [true, '{PATH} must be present'],
+        minlength: [6, '{PATH} must be at least 6 characters long']
     }
-}, {timestamps: true});
+}, { timestamps: true });
+
+TutorSchema.virtual('confirmPassword')
+    .get(() => this._confirmPassword)
+    .set(value => this._confirmPassword = value);
+
+TutorSchema.pre('validate', function (next) {
+    if (this.password !== this.confirmPassword) {
+        this.invalidate('confirmPassword', 'password must match confirm password');
+    }
+    next();
+});
+
+TutorSchema.pre('save', function (next) {
+    bcrypt.hash(this.password, 10)
+        .then(hash => {
+            this.password = hash;
+            next();
+        });
+});
 
 const Tutor = mongoose.model('Tutor', TutorSchema);
 module.exports = Tutor;

@@ -1,4 +1,7 @@
 const Tutor = require('../models/tutors.models');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const {secret} = require('../config/jwt.config');
 
 module.exports = {
 
@@ -30,6 +33,42 @@ module.exports = {
         Tutor.findByIdAndDelete(req.params.id)
             .then(removeOne => res.json(removeOne))
             .catch(err => res.status(400).json(err))
+    },
+
+    register: (req, res) => {
+        const tutor = new Tutor(req.body)
+        tutor.save()
+            .then(() => {
+                res.cookie('tutortoken', jwt.sign({_id: tutor._id}, secret), {httpOnly: true})
+                .json({msg: 'successfully created user', user: user});
+            })
+            .catch(err => res.json(err));
+    },
+
+    login: (req, res) => {
+        Tutor.findOne({email: req.body.email})
+            .then(tutor => {
+                if(tutor === null) {
+                    res.json({msg: 'Invalid login attempt'});
+                } else {
+                    bcrypt.compare(req.body.password, tutor.password)
+                        .then(passwordIsValid => {
+                            if(passwordIsValid) {
+                                res.cookie('tutortoken', jwt.sign({_id: tutor._id}, secret), {httpOnly: true})
+                                .json({msg: 'success!'});
+                            } else {
+                                res.json({msg: 'Invalid login attempt'});
+                            }
+                        })
+                        .catch(err => res.json({msg: 'Invalid login attempt'}));
+                }
+            })
+            .catch(err => res.json(err));
+    },
+
+    logout: (req, res) => {
+        res.clearCookie('tutortoken');
+        res.snedStatus(200);
     }
 
 }

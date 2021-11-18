@@ -6,4 +6,6 @@ module.exports = app => {
     app.get('/api/tutors/:id', Tutor.findOne);
     app.put('/api/tutors/:id', Tutor.update);
     app.delete('/api/tutors/:id', Tutor.delete);
+    app.post('/api/register', Tutor.register);
+    app.post('/api/login', Tutor.login);
 }
