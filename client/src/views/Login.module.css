@@ -3,3 +3,39 @@
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
 }
+.flexBox {
+    height: 100vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/cabin.jpg');
+}
+.navbar {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    color: rgb(209, 209, 101);
+}
+.body {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+.blckBox {
+    height: 80%;
+    width: 25%;
+    background-color: black;
+    color: rgb(209, 209, 101);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2%;
+    margin-bottom: 3%;
+    opacity: 85%;
+}
