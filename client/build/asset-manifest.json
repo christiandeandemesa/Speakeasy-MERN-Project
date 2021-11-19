@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b7a6593b.chunk.css",
+    "main.js": "/static/js/main.59ee6124.chunk.js",
+    "main.js.map": "/static/js/main.59ee6124.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c1f00339.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c1f00339.js.map",
+    "static/js/2.4d93b8bc.chunk.js": "/static/js/2.4d93b8bc.chunk.js",
+    "static/js/2.4d93b8bc.chunk.js.map": "/static/js/2.4d93b8bc.chunk.js.map",
+    "static/js/3.3c9c49b9.chunk.js": "/static/js/3.3c9c49b9.chunk.js",
+    "static/js/3.3c9c49b9.chunk.js.map": "/static/js/3.3c9c49b9.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.b7a6593b.chunk.css.map": "/static/css/main.b7a6593b.chunk.css.map",
+    "static/js/2.4d93b8bc.chunk.js.LICENSE.txt": "/static/js/2.4d93b8bc.chunk.js.LICENSE.txt",
+    "static/media/GreekTutor.module.css": "/static/media/athens.26266c84.jpg",
+    "static/media/SpanishTutor.module.css": "/static/media/barcelona.591a4c3f.jpg",
+    "static/media/English.module.css": "/static/media/british-pub.c41060b9.jpg",
+    "static/media/Login.module.css": "/static/media/cabin.234d3a50.jpg",
+    "static/media/greek-flag.2fbb3d18.jpg": "/static/media/greek-flag.2fbb3d18.jpg",
+    "static/media/Greek.module.css": "/static/media/greek-taverna.84aa40c5.jpg",
+    "static/media/EnglishTutor.module.css": "/static/media/london.eddb1186.jpg",
+    "static/media/Spanish.module.css": "/static/media/spanish-cantina.bb9c13d6.jpg",
+    "static/media/Home.module.css": "/static/media/speakeasy.fc2e034c.jpg",
+    "static/media/Tutor.module.css": "/static/media/wine-cellar.eeca1559.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c1f00339.js",
+    "static/js/2.4d93b8bc.chunk.js",
+    "static/css/main.b7a6593b.chunk.css",
+    "static/js/main.59ee6124.chunk.js"
+  ]
+}
