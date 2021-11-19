@@ -38,6 +38,10 @@ const Login = props => {
             .catch(err => console.log(err));
     }
 
+    const homePage = () => {
+        history.push('/home');
+    }
+
     return (
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
@@ -45,6 +49,7 @@ const Login = props => {
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
                 <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
+                <button onClick={homePage} className={styles.navBtnYlw}>{t('header.home')}</button>
             </div>
             {errors ? <p style={{color: 'red'}}>{errors}</p> : ''}
             <form onSubmit={login} className={styles.body}>

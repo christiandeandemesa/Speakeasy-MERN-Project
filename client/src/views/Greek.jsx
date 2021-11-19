@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import greek from '../images/greek-flag.jpg';
+import logo from '../images/speakeasy-logo.png';
 import styles from './Greek.module.css';
 
 const Greek = props => {
@@ -31,6 +32,7 @@ const Greek = props => {
     return (
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
+                <img src={logo} height='100' width='83' alt='Logo' />
                 <h1>Speakeasy</h1>
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>

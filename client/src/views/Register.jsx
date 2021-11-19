@@ -60,6 +60,10 @@ const Register = props => {
             });
     }
 
+    const homePage = () => {
+        history.push('/home');
+    }
+
     return (
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
@@ -67,11 +71,12 @@ const Register = props => {
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
                 <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
+                <button onClick={homePage} className={styles.navBtnYlw}>{t('header.home')}</button>
             </div>
             {errors.map((err, idx) => <p key={idx}
                 style={{ color: 'red' }}>{err}</p>)}
             <form onSubmit={register} className={styles.body}>
-                <div className={styles.grnBox}>
+                <div className={styles.blckBox}>
                     <label>{t('form.firstName')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='required' /><br />
                     {errors.firstName ? <p style={{ color: 'red' }}>{errors.firstName.message}</p> : ''} {/*Check to see if this works. If not go to 26:00 in frontend video*/}
@@ -88,7 +93,7 @@ const Register = props => {
                     <input type='checkbox' onChange={registerTutor} /> <p>{t('body.gr')}</p> &nbsp;
                     <input type='checkbox' onChange={registerTutor} /> <p>{t('body.online')}</p>
                 </div>
-                <div className={styles.grnBox}>
+                <div className={styles.blckBox}>
                     <label>{t('body.resume')}:</label>
                     <input type='text' onChange={registerTutor} placeholder='optional' /><br />
                     <label>{t('form.rate')}:</label>

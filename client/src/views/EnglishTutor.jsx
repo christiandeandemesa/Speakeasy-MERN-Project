@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import british from '../images/british-flag.png';
 import avatar from '../images/generic-avatar.jpg';
+import logo from '../images/speakeasy-logo.png';
 import styles from './EnglishTutor.module.css';
 
 const EnglishTutor = props => {
@@ -56,6 +57,7 @@ const EnglishTutor = props => {
     return (
         <div className={styles.flexBox}>
             <div className={styles.navbar}>
+                <img src={logo} height='100' width='83' alt='Logo' />
                 <h1>Speakeasy</h1>
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
