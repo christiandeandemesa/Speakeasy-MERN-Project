@@ -1,7 +1,6 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import british from '../images/british-flag.png';
 import logo from '../images/speakeasy-logo.png';
 import styles from './English.module.css';
 
@@ -15,10 +14,6 @@ const English = props => {
 
     const englishTutorPage = () => {
         history.push('/english/tutors');
-    }
-
-    const errorPage = () => {
-        history.push('/error');
     }
 
     const registerPage = () => {
@@ -37,7 +32,6 @@ const English = props => {
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
                 <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
-                {/*<img src={british} height='50' width='83' alt='English Flag' />*/}
                 <button onClick={homePage} className={styles.navBtnYlw}>{t('header.home')}</button>
                 <button onClick={registerPage} className={styles.navBtnYlw}>{t('header.register')}</button>
                 <button onClick={loginPage} className={styles.navBtnYlw}>{t('header.login')}</button>
@@ -45,7 +39,7 @@ const English = props => {
             <div className={styles.body}>
                 <div className={styles.grnBox}>
                     <h2>{t('body.enLearn')}</h2>
-                    <button onClick={errorPage} className={styles.boxBtnYlw}>{t('body.learnBtn')}</button> {/*Have this link to an english language page*/}
+                    <button className={styles.boxBtnYlw}><a href={`https://www.esolcourses.com/content/topicsmenu/beginners.html`} className={styles.link} target='_blank'>{t('body.learnBtn')}</a></button>
                 </div>
                 <div className={styles.grnBox}>
                     <h2>{t('body.enLook')}</h2>

@@ -54,3 +54,15 @@
     color: rgb(0, 0, 78);
     border-radius: 15px;
 }
+.link {
+    transition: all .5s ease;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    background-color : transparent;
+    outline: none;
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(0, 0, 78);
+}

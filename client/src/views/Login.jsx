@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../images/speakeasy-logo.png';
 import styles from './Login.module.css'; // Login starts at 29:30 in frontend video.

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import british from '../images/british-flag.png';
@@ -23,10 +23,6 @@ const Home = props => {
         history.push('/greek');
     }
 
-    const errorPage = () => {
-        history.push('/error');
-    }
-
     const registerPage = () => {
         history.push('/tutors/register');
     }
@@ -43,12 +39,7 @@ const Home = props => {
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
                 <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
-                {/*<select>
-                    <option>English</option>
-                    <option>Español</option>
-                    <option>Ελληνικά</option>
-                </select>*/}
-                <button onClick={errorPage} className={styles.navBtnYlw}>{t('header.languages')}</button>
+                <a href={`https://www.goabroad.com/articles/language-study-abroad/10-best-ways-to-learn-a-new-language`} className={styles.link} target='_blank'>{t('header.languages')}</a>
                 <button onClick={registerPage} className={styles.navBtnYlw}>{t('header.register')}</button>
                 <button onClick={loginPage} className={styles.navBtnYlw}>{t('header.login')}</button>
             </div>
@@ -58,8 +49,8 @@ const Home = props => {
                 </div>
                 <div>
                     <button onClick={englishPage} className={styles.btnBrwn}><img src={british} height='60' width='100' alt='British Flag' /></button>
-                    <button onClick={spanishPage} className={styles.btnBrwn}><img src={spanish} height='60' width='100' alt='Spanish Flag' /></button>
                     <button onClick={greekPage} className={styles.btnBrwn}><img src={greek} height='60' width='100' alt='Greek Flag' /></button>
+                    <button onClick={spanishPage} className={styles.btnBrwn}><img src={spanish} height='60' width='100' alt='Spanish Flag' /></button>
                 </div>
             </div>
 

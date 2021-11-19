@@ -1,8 +1,7 @@
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
-import british from '../images/british-flag.png';
 import avatar from '../images/generic-avatar.jpg';
 import logo from '../images/speakeasy-logo.png';
 import styles from './EnglishTutor.module.css';
@@ -62,7 +61,6 @@ const EnglishTutor = props => {
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
                 <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
-                {/*<img src={british} height='50' width='83' alt='british flag' />*/}
                 <button onClick={homePage} className={styles.navBtnYlw}>{t('header.home')}</button>
                 <button onClick={registerPage} className={styles.navBtnYlw}>{t('header.register')}</button>
                 <button onClick={loginPage} className={styles.navBtnYlw}>{t('header.login')}</button>

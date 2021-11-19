@@ -1,7 +1,6 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import greek from '../images/greek-flag.jpg';
 import logo from '../images/speakeasy-logo.png';
 import styles from './Greek.module.css';
 
@@ -15,10 +14,6 @@ const Greek = props => {
 
     const greekTutorPage = () => {
         history.push('/greek/tutors');
-    }
-
-    const errorPage = () => {
-        history.push('/error');
     }
 
     const registerPage = () => {
@@ -37,7 +32,6 @@ const Greek = props => {
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
                 <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
-                {/*<img src={greek} height='50' width='83' alt='Greek Flag' />*/}
                 <button onClick={homePage} className={styles.navBtnYlw}>{t('header.home')}</button>
                 <button onClick={registerPage} className={styles.navBtnYlw}>{t('header.register')}</button>
                 <button onClick={loginPage} className={styles.navBtnYlw}>{t('header.login')}</button>
@@ -45,7 +39,7 @@ const Greek = props => {
             <div className={styles.body}>
                 <div className={styles.blueBox}>
                     <h2>{t('body.grLearn')}</h2>
-                    <button onClick={errorPage} className={styles.boxBtnYlw}>{t('body.learnBtn')}</button> {/*Have this link to a greek language page*/}
+                    <button className={styles.boxBtnYlw}><a href={`https://www.greekpod101.com/lesson-library/conversational-greek-for-absolute-beginners/`} className={styles.link} target='_blank'>{t('body.learnBtn')}</a></button>
                 </div>
                 <div className={styles.blueBox}>
                     <h2>{t('body.grLearn')}</h2>

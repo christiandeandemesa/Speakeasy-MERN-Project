@@ -1,5 +1,5 @@
-import React, { useEffect, useState, Suspense } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import avatar from '../images/generic-avatar.jpg';
@@ -50,11 +50,6 @@ const Tutor = props => {
                 <button onClick={() => i18n.changeLanguage('en')}>{t('body.en')}</button>
                 <button onClick={() => i18n.changeLanguage('gr')}>{t('body.gr')}</button>
                 <button onClick={() => i18n.changeLanguage('sp')}>{t('body.sp')}</button>
-                {/*<select>
-                    <option>English</option>
-                    <option>Español</option>
-                    <option>Ελληνικά</option>
-                </select>*/}
                 <button onClick={homePage} className={styles.navBtnYlw}>{t('header.home')}</button>
                 <button onClick={registerPage} className={styles.navBtnYlw}>{t('header.register')}</button>
                 <button onClick={loginPage} className={styles.navBtnYlw}>{t('header.login')}</button>

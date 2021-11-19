@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -9,41 +9,38 @@ const Register = props => {
     const { t, i18n } = useTranslation('common');
 
     const [form, setForm] = useState({ // State is not updating
-        firstName: '',
-        lastName: '',
-        image: '',
-        city: '',
-        state: '',
+        firstName: "",
+        lastName: "",
+        image: "",
+        city: "",
+        state: "",
         english: false,
         spanish: false,
         greek: false,
-        resume: '',
+        resume: "",
         online: true,
         rate: 0,
-        phoneNumber: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
+        phoneNumber: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
     });
 
     const [errors, setErrors] = useState([]);
     const history = useHistory();
 
     const registerTutor = e => {
+        const { name, value } = e.target
         setForm({
             ...form,
-            [e.target.name]: e.target.value
+            [name]: value
         });
     }
 
     const register = e => {
         e.preventDefault();
-
-        const newTutor = {
-
-        }
-
-        axios.post('http://localhost:8000/api/register', newTutor, { withCredentials: true })
+        const { firstName, lastName, image, city, state, english, spanish, greek, resume, online, rate, phoneNumber, email, password, confirmPassword } = form
+        axios.post('http://localhost:8000/api/register', form)
             .then(res => {
                 console.log('🚍 You created a tutor in Register.jsx ' + res.data);
                 history.push('/home');
